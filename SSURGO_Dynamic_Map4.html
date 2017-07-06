@@ -89,9 +89,7 @@
             <ul role="tablist">
                 <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
            	    <li><a href="#location" role="tab"><i class="fa fa-globe"></i></a></li>
-				<li><a href="#mouse-actions" role="tab"><i class="fa fa-mouse-pointer"></i></a></li>
-
-			    <li><a href="#messages" role="tab"><i class="fa fa-envelope"></i></a></li>
+	
 
             </ul>
 
@@ -106,87 +104,7 @@
 	  <!-- Home -->		
 			
 			<div class="sidebar-pane" id="home">
-                <h1 class="sidebar-header">
-                   SSURGO Dynamic Map
-                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
-                </h1>
-
-              
-                <p> Leaflet SDA sample - clicking on the map presents a popup with some mapunit data and highlights the current mupolygon.</p>
-	  <p>Soil lines are from the SDA "Web Map Service" (WMS). Note that the WMS allows
-	for a "Styled Layer Description" allowing considerable control over the
-	appearance of the soil polygons and their labels. That feature is not used here.  </p>
-	  <p>The soil polygons are drawn using tiled SDA Web Map Service requests. The selected
-	polygon is drawn by retrieving the polygon as WKT and drawing the selected polygon.
-	Note that an SDA "User Defined Function" (UDF) is used to perform the spatial search.
-	See the SDA <a href="https://sdmdataaccess.sc.egov.usda.gov/documents/AdvancedQueries.html">Advanced Queries</a>
-	page for details.
-	  </p>
-
-
-                </div>
- 
-		<div class="sidebar-pane" id="mouse-actions">			
-                <h1 class="sidebar-header">
-                    Click Actions
-                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
-					<form>
-						<table>
-							<tr><td><input type="radio" name="clickDomain" onclick="enableIdentify();" value="identify" checked> identify</td></tr>
-							<tr><td><input type="radio" name="clickDomain" onclick="enableDraw();" value="draw"> draw</td></tr>
-						</table>
-					</form>
-                </h1>
- 				<form id="clickActionForm">
-					<table id='clickAction-menu'></table>
-				</form>				
-			</div>
-	
-  <!-- Messages-->
-        
-				<div class="sidebar-pane" id="messages">
-                <h1 class="sidebar-header">
-                   Wisconsin Cooperative Soil Program 
-                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
-                </h1>
-				
-				<table border="0" cellpadding="1" cellspacing="1" style="width: 400px;">
-	<tbody>
-		<tr>
-			<td><img alt="Wisconsin Soil Science Tile Logo" height="126" src="https://www.nrcs.usda.gov/Internet/FSE_MEDIA/nrcseprd1327461.jpg"  width="400px" /></td>
-		</tr>
-		<tr>
-			<td><strong><font style="face:Calibri;font-weight:bold;font-size:14"><em>Helping People Understand Soils</em></font></strong></td>
-		</tr>
-	</tbody>
-</table>
-
-			<p><strong>Soil </strong>is a vital part of the natural environment. It influences the distribution of plant species and provides a habitat for a wide range of organisms. It controls the flow of water and chemical substances between the atmosphere and the earth, and acts as both a source and store for gases in the atmosphere. Soil, together with the plant and animal life it supports, forms an amazing, intricate natural system. One of NRCS&#39;s main focuses is our Wisconsin Cooperative Soils Program. This program is part of the <a href="https://www.nrcs.usda.gov/wps/portal/nrcs/site/soils/home/">National Cooperative Soil Survey</a>, a partnership effort of Federal and State agencies, universities, and professional societies to deliver science-based soils information. Below, you will find links to soil history, useful information, tools and resources by topic.</p>
-
-<table>
-	<tbody>
-		<tr>
-			<td><a href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/wi/soils/?cid=nrcseprd1326298" target="_blank" ><img alt="pubs &amp; maps button" src="https://www.nrcs.usda.gov/Internet/FSE_MEDIA/nrcseprd1326335.jpg" style="float: left; width: 125px; height: 100px;" /></a></td>
-			<td><a href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/wi/soils/?cid=nrcseprd1326301" target="_blank" ><img alt="soil judging" src="https://www.nrcs.usda.gov/Internet/FSE_MEDIA/nrcseprd1326336.jpg" style="float: left; width: 125px; height: 100px;" /></a></td>
-			<td><a href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/wi/soils/?cid=nrcseprd1326305" target="_blank" ><img alt="tech soil services" src="https://www.nrcs.usda.gov/Internet/FSE_MEDIA/nrcseprd1326338.jpg" style="float: left; width: 125px; height: 100px;" /></a></td>
-		</tr>
-		<tr>
-			<td><a href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/wi/soils/?cid=nrcseprd1326309" target="_blank"><img alt="tools button" src="https://www.nrcs.usda.gov/Internet/FSE_MEDIA/nrcseprd1326339.jpg" style="float: left; width: 125px; height: 100px;" /></a></td>
-			<td><a href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/wi/soils/?cid=nrcseprd1326313" target="_blank"><img alt="photos &amp; videos button" src="https://www.nrcs.usda.gov/Internet/FSE_MEDIA/nrcseprd1326334.jpg" style="float: left; width: 125px; height: 100px;" /></a></td>
-			<td><a href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/wi/soils/?cid=nrcseprd1326315" target="_blank"><img alt="soil data button" src="https://www.nrcs.usda.gov/Internet/FSE_MEDIA/nrcseprd1326337.jpg" style="float: left; width: 125px; height: 100px;" /></a></td>
-		</tr>
-		<tr>
-			<td><a href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/wi/soils/?cid=nrcseprd1326316" target="_blank"><img alt="history button" src="https://www.nrcs.usda.gov/Internet/FSE_MEDIA/nrcseprd1326333.jpg" style="float: left; width: 125px; height: 100px;" /></a></td>
-			<td><a href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/wi/soils/?cid=nrcseprd1326318" target="_blank"><img alt="contact us button" src="https://www.nrcs.usda.gov/Internet/FSE_MEDIA/nrcseprd1326331.jpg" style="float: left; width: 125px; height: 100px;" /></a></td>
-			<td><a href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/wi/soils/?cid=nrcseprd1326320" target="_blank"><img alt="cooperative program button" src="https://www.nrcs.usda.gov/Internet/FSE_MEDIA/nrcseprd1326332.jpg" style="float: left; width: 125px; height: 100px;" /></a></td>
-		</tr>
-	</tbody>
-</table>
-	
-            </div>
-	<!-- Location -->		
- <div class="sidebar-pane" id="location">
-				<h1 class="sidebar-header">
+							<h1 class="sidebar-header">
                     Location
                     <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
                 </h1>
@@ -206,6 +124,30 @@
 	
 					</table>
 				</form>	
+			
+                	
+
+
+                </div>
+ 
+
+	<!-- Location -->		
+ <div class="sidebar-pane" id="location">
+<h1 class="sidebar-header">
+                   Draw Polygon 
+                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+            <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+					<form>
+						<table>
+							<tr><td><input type="radio" name="clickDomain" onclick="enableIdentify();" value="identify" checked> identify</td></tr>
+							<tr><td><input type="radio" name="clickDomain" onclick="enableDraw();" value="draw"> draw</td></tr>
+						</table>
+					</form>
+                </h1>
+ 				<form id="clickActionForm">
+					<table id='clickAction-menu'></table>
+				</form>
 </div>	
 
 
