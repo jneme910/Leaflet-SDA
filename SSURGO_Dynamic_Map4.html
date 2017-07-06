@@ -7,47 +7,49 @@
 <title> SSURGO Dynamic Map </title>
 
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	
 	<link rel="stylesheet" href="https://turbo87.github.io/sidebar-v2/css/leaflet-sidebar.css" />
+	<script src="../script/leaflet-sidebar.js"></script>
 	
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ=="crossorigin=""/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js" integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="crossorigin=""></script>
-  
- <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/Leaflet.draw.js"></script>
-    <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/Leaflet.Draw.Event.js"></script>
-    <link rel="stylesheet" href="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/leaflet.draw.css"/>
+   
+ <script src="../script/Leaflet.draw.js"></script>
+    <script src="../script/Leaflet.Draw.Event.js"></script>
+    <link rel="stylesheet" href="../css/leaflet.draw.css"/>
 
-    <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/Toolbar.js"></script>
-    <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/Tooltip.js"></script>
+    <script src="../script/Toolbar.js"></script>
+    <script src="../script/Tooltip.js"></script>
 
-    <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/GeometryUtil.js"></script>
-    <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/LatLngUtil.js"></script>
-    <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/LineUtil.Intersect.js"></script>
-    <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/Polygon.Intersect.js"></script>
-    <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/Polyline.Intersect.js"></script>
-    <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/TouchEvents.js"></script>
+    <script src="../script/GeometryUtil.js"></script>
+    <script src="../script/LatLngUtil.js"></script>
+    <script src="../script/LineUtil.Intersect.js"></script>
+    <script src="../script/Polygon.Intersect.js"></script>
+    <script src="../script/Polyline.Intersect.js"></script>
+    <script src="../script/TouchEvents.js"></script>
 
-    <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/DrawToolbar.js"></script>
-    <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/Draw.Feature.js"></script>
-    <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/Draw.SimpleShape.js"></script>
-    <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/Draw.Polyline.js"></script>
-    <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/Draw.Circle.js"></script>
-    <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/Draw.Marker.js"></script>
-    <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/Draw.Polygon.js"></script>
-    <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/Draw.Rectangle.js"></script>
+    <script src="../script/DrawToolbar.js"></script>
+    <script src="../script/Draw.Feature.js"></script>
+    <script src="../script/Draw.SimpleShape.js"></script>
+    <script src="../script/Draw.Polyline.js"></script>
+    <script src="../script/Draw.Circle.js"></script>
+    <script src="../script/Draw.Marker.js"></script>
+    <script src="../script/Draw.Polygon.js"></script>
+    <script src="../script/Draw.Rectangle.js"></script>
 
 
-    <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/EditToolbar.js"></script>
-    <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/EditToolbar.Edit.js"></script>
-    <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/EditToolbar.Delete.js"></script>
+    <script src="../script/EditToolbar.js"></script>
+    <script src="../script/EditToolbar.Edit.js"></script>
+    <script src="../script/EditToolbar.Delete.js"></script>
 
-    <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/Control.Draw.js"></script>
+    <script src="../script/Control.Draw.js"></script>
 
-    <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/Edit.Poly.js"></script>
-    <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/Edit.SimpleShape.js"></script>
-    <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/Edit.Circle.js"></script>
-    <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/Edit.Rectangle.js"></script>
-    <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/Edit.Marker.js"></script>
+    <script src="../script/Edit.Poly.js"></script>
+    <script src="../script/Edit.SimpleShape.js"></script>
+    <script src="../script/Edit.Circle.js"></script>
+    <script src="../script/Edit.Rectangle.js"></script>
+    <script src="../script/Edit.Marker.js"></script>
 	
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/wicket/1.3.2/wicket.min.js"></script>
@@ -151,6 +153,24 @@
 </div>	
 
 
+	<div id="drawSaveDiv" class="drawSaveClass leaflet-control">
+		<form>
+			<table>
+				<tr><td><input type='button' onClick="performAoiActionSdaCreate();"  value='create SDA AOI'/></td></tr>
+				<tr><td><input type='button' onClick="performAoiActionWssOpen(true);"    value='open WSS with AOI in new tab'/></td></tr>
+				<tr><td><input type='button' onClick="performAoiActionWssOpen(false);"    value='open WSS with AOI in this tab'/></td></tr>
+				<tr><td><input type='button' onClick="performAoiActionCancel();"     value='cancel'/></td></tr>
+			</table>			
+		</form>
+		<!-- hidden form for opening WSS with aoicoords -->
+		<form id='wssOpenForm' action='' method='post' target='_blank'>
+			<input type="hidden" id="wssAoicoords"  name="aoicoords" value="" />
+			<input type="hidden" name="command" value="aoi_wkt" />
+			<input type="hidden" name="mapmode" value="Area of Interest" />
+			<input type="hidden" id="wssContinue" name="continue" value="" />
+		</form>
+	</div>
+
 			
 	  <!-- Settings-->		
 			
@@ -161,7 +181,7 @@
     </div>
 
 	<div id="map" class="sidebar-map" style="height: 100%;"></div>
-	 <script src="https://turbo87.github.io/sidebar-v2/js/leaflet-sidebar.js"></script>
+	 
 	
 	<script type="text/javascript">
 	var wssUrl;
@@ -520,11 +540,11 @@
 				
 			}
 		}
-		// The following Bing key is provided for USDA-use only.
+		// ESRI World Imagery
 		var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
 	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 });
-		//var bingTiles = new L.BingLayer("AmmH5JF22z1SVTlmW5RBL9Qs24jux_Rn2C6MSGoRHohVCySTPQBcsOf4VEqIvtye", {type: 'Aerial'});
+	
 		var map = L.map('map').setView([38.5643, -121.5838], 14);
 		
 		var features = [];	// holder for selected polygon boundary
@@ -1028,47 +1048,37 @@ var leafletDrawLayers = [];
 				//populateLinksMenu();	
 			}
 		}
-
-		map.on('click', onMapClick);
 		
-		var GooglePlacesSearchBox = L.Control.extend({
-  onAdd: function() {
-    var element = document.createElement("input");
-    element.id = "searchBox";
-    return element;
-  }
-});
-(new GooglePlacesSearchBox).addTo(map);
+		// The sidebar menu has been clicked, handle the events
+		$('#layersForm').click(function(event){
+			var target = event.target;
+			var name = target.name;
+			
+			if (name == 'bUpdateForeground')
+			{
+				// Foreground has changed, handle that elsewhere
+				UpdateForegroundMap();
+			} else if (name == 'bUseBingKey') {
+				// Bing maps key has changed
+				var newBingkey = $('#bingkey').val();
+				if (mapState.background.bingkey != newBingkey) {
+					mapState.background.bingkey = newBingkey;
+					if ($('#isBingAerial').checked || $('#isBingRoad').checked || $('#isBingAerialWithLabels').checked) {
+						RedrawMap(true, false);
+					}
+				}
+			} else if (name == "background") {
+				// The background selection has changed
+				mapState.background.isOsm = $('#isOsm')[0].checked;
+				mapState.background.isBingAerial = $('#isBingAerial')[0].checked;
+				mapState.background.isBingRoad = $('#isBingRoad')[0].checked;
+				mapState.background.isBingAerialWithLabels = $('#isBingAerialWithLabels')[0].checked;
+				mapState.background.isNoBackground = $('#isNoBackground')[0].checked;
+				RedrawMap(true, false);
+			}
 
-var input = document.getElementById("searchBox");
-var searchBox = new google.maps.places.SearchBox(input);
+		});
 
-searchBox.addListener('places_changed', function() {
-  var places = searchBox.getPlaces();
-
-  if (places.length == 0) {
-    return;
-  }
-
-  var group = L.featureGroup();
-
-  places.forEach(function(place) {
-
-    // Create a marker for each place.
-    var marker = L.marker([
-      place.geometry.location.lat(),
-      place.geometry.location.lng()
-    ]);
-    group.addLayer(marker);
-  });
-
-  group.addTo(map);
-  map.fitBounds(group.getBounds());
-
-}
-
-
-);
 		
 	</script>
 
