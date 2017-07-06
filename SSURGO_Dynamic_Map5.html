@@ -1,18 +1,25 @@
-<!--DOCTYPE html-->
 
-
+<! DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-<title> SSURGO Dynamic Map </title>
+<!-- File: SoilDataAccess\Test\TestWMS14.html  comments at bottom of file -->
 
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://turbo87.github.io/sidebar-v2/css/leaflet-sidebar.css" />
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ=="crossorigin=""/>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Soil Data Access Leaflet</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js" integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="crossorigin=""></script>
-  
- <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/Leaflet.draw.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/wicket/1.3.2/wicket.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/wicket/1.3.2/wicket-leaflet.min.js"></script>
+	<script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/BingMaps.js"></script>
+	<script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/leaflet-sidebar.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/leaflet-sidebar.css" />
+	
+    <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/Leaflet.draw.js"></script>
     <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/Leaflet.Draw.Event.js"></script>
     <link rel="stylesheet" href="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/leaflet.draw.css"/>
 
@@ -46,14 +53,9 @@
     <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/Edit.SimpleShape.js"></script>
     <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/Edit.Circle.js"></script>
     <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/Edit.Rectangle.js"></script>
-    <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/Edit.Marker.js"></script>
+    <script src="https://github.com/jneme910/SDA_Leaflet_Map/tree/master/script/Edit.Marker.js"></script>	
 	
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/wicket/1.3.2/wicket.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/wicket/1.3.2/wicket-leaflet.min.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?v=3&libraries=places&sensor=false"></script>
-	
-	   <style>
+    <style>
         body {
             padding: 0;
             margin: 0;
@@ -79,53 +81,68 @@
 			visibility: hidden;
 		}
 	</style>
-
+	
 </head>
 <body>
-<div id="sidebar" class="sidebar collapsed">
+    <div id="sidebar" class="sidebar collapsed">
         <!-- Nav tabs -->
         <div class="sidebar-tabs">
             <ul role="tablist">
-                <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
-           	    <li><a href="#location" role="tab"><i class="fa fa-globe"></i></a></li>
+                <li><a href="#location" role="tab"><i class="fa fa-globe"></i></a></li>
+				<li><a href="#layers-and-ids" role="tab"><i class="fa fa-bars"></i></a></li>
 				<li><a href="#mouse-actions" role="tab"><i class="fa fa-mouse-pointer"></i></a></li>
-
-			    <li><a href="#messages" role="tab"><i class="fa fa-envelope"></i></a></li>
-
-            </ul>
-
-            <ul role="tablist">
+				<li><a href="#links" role="tab"><i class="fa fa-link"></i></a></li>
+			</ul>
+            <ul role="tablist">		
                 <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
             </ul>
         </div>
 
         <!-- Tab panes -->
         <div class="sidebar-content">
-            
-	  <!-- Home -->		
-			
-			<div class="sidebar-pane" id="home">
-                <h1 class="sidebar-header">
-                   SSURGO Dynamic Map
+		
+            <div class="sidebar-pane" id="location">
+				<h1 class="sidebar-header">
+                    Location
                     <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
                 </h1>
-
-              
-                <p> Leaflet SDA sample - clicking on the map presents a popup with some mapunit data and highlights the current mupolygon.</p>
-	  <p>Soil lines are from the SDA "Web Map Service" (WMS). Note that the WMS allows
-	for a "Styled Layer Description" allowing considerable control over the
-	appearance of the soil polygons and their labels. That feature is not used here.  </p>
-	  <p>The soil polygons are drawn using tiled SDA Web Map Service requests. The selected
-	polygon is drawn by retrieving the polygon as WKT and drawing the selected polygon.
-	Note that an SDA "User Defined Function" (UDF) is used to perform the spatial search.
-	See the SDA <a href="https://sdmdataaccess.sc.egov.usda.gov/documents/AdvancedQueries.html">Advanced Queries</a>
-	page for details.
-	  </p>
-
-
-                </div>
- 
-		<div class="sidebar-pane" id="mouse-actions">			
+ 				<form id="locationForm">
+					<table id='location-menu'>
+						<tr><td><input type='button' onclick='getLocation();' value='get current location'/></td></tr>
+						<tr><td id="locationLatitude" ></td></tr>
+						<tr><td id="locationLongitude" ></td></tr>
+						<tr><td><input type='button' onclick='moveToLocation();' value='move this map to location'/></td></tr>
+						<tr><td>WSS location radius degrees (0.001-0.5):</td></tr>
+						<tr><td><input type='number' id='wssLocationRadius' value='0.01' min='0.001' max='0.5' /></td></tr>
+						<tr><td ><input type='button' onclick='startWssAtLocation(true);' value='start WSS at location in new tab'/></td></tr>
+						<tr><td ><input type='button' onclick='startWssAtLocation(false);' value='start WSS at location in this tab'/></td></tr>
+					</table>
+				</form>	
+            </div>		
+		
+            <div class="sidebar-pane" id="layers-and-ids">
+                <h1 class="sidebar-header">
+                    SDA layers & IDs
+                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+ 				<form id="layersForm">
+					<table id='layers-menu'></table>
+				</form>	
+            </div>
+			
+            <div class="sidebar-pane" id="links">			
+                <h1 class="sidebar-header">
+                    WFS/WMS Links
+                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+ 				<form id="wfsWmsLinks">
+					Note that the links are only refreshed when you press this button:
+					<input type='button' onclick='populateLinksMenu();' value='update links'/>
+					<table id='wfsWmsLinks-menu'></table>
+				</form>				
+			</div>
+			
+            <div class="sidebar-pane" id="mouse-actions">			
                 <h1 class="sidebar-header">
                     Click Actions
                     <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
@@ -140,95 +157,49 @@
 					<table id='clickAction-menu'></table>
 				</form>				
 			</div>
-	
-  <!-- Messages-->
-        
-				<div class="sidebar-pane" id="messages">
-                <h1 class="sidebar-header">
-                   Wisconsin Cooperative Soil Program 
-                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
-                </h1>
-				
-				<table border="0" cellpadding="1" cellspacing="1" style="width: 400px;">
-	<tbody>
-		<tr>
-			<td><img alt="Wisconsin Soil Science Tile Logo" height="126" src="https://www.nrcs.usda.gov/Internet/FSE_MEDIA/nrcseprd1327461.jpg"  width="400px" /></td>
-		</tr>
-		<tr>
-			<td><strong><font style="face:Calibri;font-weight:bold;font-size:14"><em>Helping People Understand Soils</em></font></strong></td>
-		</tr>
-	</tbody>
-</table>
-
-			<p><strong>Soil </strong>is a vital part of the natural environment. It influences the distribution of plant species and provides a habitat for a wide range of organisms. It controls the flow of water and chemical substances between the atmosphere and the earth, and acts as both a source and store for gases in the atmosphere. Soil, together with the plant and animal life it supports, forms an amazing, intricate natural system. One of NRCS&#39;s main focuses is our Wisconsin Cooperative Soils Program. This program is part of the <a href="https://www.nrcs.usda.gov/wps/portal/nrcs/site/soils/home/">National Cooperative Soil Survey</a>, a partnership effort of Federal and State agencies, universities, and professional societies to deliver science-based soils information. Below, you will find links to soil history, useful information, tools and resources by topic.</p>
-
-<table>
-	<tbody>
-		<tr>
-			<td><a href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/wi/soils/?cid=nrcseprd1326298" target="_blank" ><img alt="pubs &amp; maps button" src="https://www.nrcs.usda.gov/Internet/FSE_MEDIA/nrcseprd1326335.jpg" style="float: left; width: 125px; height: 100px;" /></a></td>
-			<td><a href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/wi/soils/?cid=nrcseprd1326301" target="_blank" ><img alt="soil judging" src="https://www.nrcs.usda.gov/Internet/FSE_MEDIA/nrcseprd1326336.jpg" style="float: left; width: 125px; height: 100px;" /></a></td>
-			<td><a href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/wi/soils/?cid=nrcseprd1326305" target="_blank" ><img alt="tech soil services" src="https://www.nrcs.usda.gov/Internet/FSE_MEDIA/nrcseprd1326338.jpg" style="float: left; width: 125px; height: 100px;" /></a></td>
-		</tr>
-		<tr>
-			<td><a href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/wi/soils/?cid=nrcseprd1326309" target="_blank"><img alt="tools button" src="https://www.nrcs.usda.gov/Internet/FSE_MEDIA/nrcseprd1326339.jpg" style="float: left; width: 125px; height: 100px;" /></a></td>
-			<td><a href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/wi/soils/?cid=nrcseprd1326313" target="_blank"><img alt="photos &amp; videos button" src="https://www.nrcs.usda.gov/Internet/FSE_MEDIA/nrcseprd1326334.jpg" style="float: left; width: 125px; height: 100px;" /></a></td>
-			<td><a href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/wi/soils/?cid=nrcseprd1326315" target="_blank"><img alt="soil data button" src="https://www.nrcs.usda.gov/Internet/FSE_MEDIA/nrcseprd1326337.jpg" style="float: left; width: 125px; height: 100px;" /></a></td>
-		</tr>
-		<tr>
-			<td><a href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/wi/soils/?cid=nrcseprd1326316" target="_blank"><img alt="history button" src="https://www.nrcs.usda.gov/Internet/FSE_MEDIA/nrcseprd1326333.jpg" style="float: left; width: 125px; height: 100px;" /></a></td>
-			<td><a href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/wi/soils/?cid=nrcseprd1326318" target="_blank"><img alt="contact us button" src="https://www.nrcs.usda.gov/Internet/FSE_MEDIA/nrcseprd1326331.jpg" style="float: left; width: 125px; height: 100px;" /></a></td>
-			<td><a href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/wi/soils/?cid=nrcseprd1326320" target="_blank"><img alt="cooperative program button" src="https://www.nrcs.usda.gov/Internet/FSE_MEDIA/nrcseprd1326332.jpg" style="float: left; width: 125px; height: 100px;" /></a></td>
-		</tr>
-	</tbody>
-</table>
-	
-            </div>
-	<!-- Location -->		
- <div class="sidebar-pane" id="location">
-				<h1 class="sidebar-header">
-                    Location
-                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
-                </h1>
-
-	<form id="locationForm">
-					<table id='location-menu'>
-						<tr><td><input type='button' onclick='getLocation();' value='get current location'/></td></tr>
-						<tr><td id="locationLatitude" ></td></tr>
-						<tr><td id="locationLongitude" ></td></tr>
-						<tr><td><input type='button' onclick='moveToLocation();' value='move this map to location'/></td></tr>
-						<tr><td>WSS location radius degrees (0.001-0.5):</td></tr>
-						<tr><td><input type='number' id='wssLocationRadius' value='0.01' min='0.001' max='0.5' /></td></tr>
-						<tr><td ><input type='button' onclick='startWssAtLocation(true);' value='start WSS at location in new tab'/></td></tr>
-						<tr><td ><input type='button' onclick='startWssAtLocation(false);' value='start WSS at location in this tab'/></td></tr>
-						
-						
-	
-					</table>
-				</form>	
-</div>	
-
-
-			
-	  <!-- Settings-->		
-			
-            <div class="sidebar-pane" id="settings">
-                <h1 class="sidebar-header">Settings<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
-            </div>
         </div>
     </div>
 
-	<div id="map" class="sidebar-map" style="height: 100%;"></div>
-	 <script src="https://turbo87.github.io/sidebar-v2/js/leaflet-sidebar.js"></script>
+	<div id="map" style="height:95%;" class="sidebar-map"></div>
+	<div id="drawSaveDiv" class="drawSaveClass leaflet-control">
+		<form>
+			<table>
+				<tr><td><input type='button' onClick="performAoiActionSdaCreate();"  value='create SDA AOI'/></td></tr>
+				<tr><td><input type='button' onClick="performAoiActionWssOpen(true);"    value='open WSS with AOI in new tab'/></td></tr>
+				<tr><td><input type='button' onClick="performAoiActionWssOpen(false);"    value='open WSS with AOI in this tab'/></td></tr>
+				<tr><td><input type='button' onClick="performAoiActionCancel();"     value='cancel'/></td></tr>
+			</table>			
+		</form>
+		<!-- hidden form for opening WSS with aoicoords -->
+		<form id='wssOpenForm' action='' method='post' target='_blank'>
+			<input type="hidden" id="wssAoicoords"  name="aoicoords" value="" />
+			<input type="hidden" name="command" value="aoi_wkt" />
+			<input type="hidden" name="mapmode" value="Area of Interest" />
+			<input type="hidden" id="wssContinue" name="continue" value="" />
+		</form>
+	</div>
+
+	<div class="margin-indented">
+		SDA WMS Sample - clicking on the map presents a popup with some mapunit data and highlights the current mupolygon.
+		&nbsp;&nbsp;&nbsp;&nbsp;<div id="zoomlevel">(zoom level)</div>
+	</div>
+
 	
 	<script type="text/javascript">
-	var wssUrl;
+		// SDA URLs of interest
+		var wmsUrl;
+		var wfsWgs84Url;
+		var wfsWmUrl;
+		var describeLayerUrl;
+		var postRestUrl;
+		var wssUrl;
 		if (window.location.hostname.toLowerCase() != 'localhost') {
 			// Normal SDA environments
 			// "https://SDMDataAccess.sc.egov.usda.gov/Spatial/SDM.wms"
 			wmsUrl = '../spatial/SDM.wms';
 			wfsWgs84Url = '../spatial/SDMWGS84Geographic.wfs';
 			wfsWmUrl = '../spatial/SDMWM.wfs';
-			// "https://sdmdataaccess.sc.egov.usda.gov/tabular/post.rest";
+			// "HTTPS://sdmdataaccess.sc.egov.usda.gov/tabular/post.rest";
 			postRestUrl = '../tabular/post.rest';
 			if (window.location.hostname.toLowerCase().includes('.dev.')) {
 				wssUrl = 'https://websoilsurvey-dev.dev.sc.egov.usda.gov/App/WebSoilSurvey.aspx';
@@ -241,7 +212,7 @@
 			wfsWgs84Url = '../../spatial/SDMWGS84Geographic.wfs';
 			wfsWmUrl = '../../spatial/SDMWM.wfs';
 			postRestUrl = '../../sdmtabularservice/tabular/post.rest';
-			wssUrl = 'https://websoilsurvey.sc.egov.usda.gov/App/WebSoilSurvey.aspx';
+			wssUrl = 'https://websoilsurvey-dev.dev.sc.egov.usda.gov/App/WebSoilSurvey.aspx';
 		}
 		
 		// map-related globals
@@ -290,7 +261,8 @@
 			},
 			aoicoords: null
 		};	
-	// Populate Sidebar layers & ids menu
+		
+		// Populate Sidebar layers & ids menu
 		function populateLayersMenu(xml){
 			// Define the Soils layer choices
 			var layersMenuHtml = "<tr><td><h3>Soils</h3></td></tr>";				
@@ -313,7 +285,33 @@
 			};
 		
 			// Define AOI id options and projection choices
-
+			layersMenuHtml += "<tr><td>IDs and vector data projection options:</td></tr>";			
+			layersMenuHtml += "<tr><td>&nbsp;&nbsp;&nbsp;<input type='radio' name='ids' id='isNoId' value='isNoId' checked>none</td></tr>";
+			layersMenuHtml += "<tr><td>&nbsp;&nbsp;&nbsp;<input type='radio' name='ids' id='isAoiid' value='isAoiid'>";
+			layersMenuHtml += "aoi&nbsp;&nbsp;";
+			layersMenuHtml += "<input type='number' name='aoiid' id='aoiid' min='1' max='16777216'></td></tr>";
+			layersMenuHtml += "<tr><td>&nbsp;&nbsp;&nbsp;<input type='radio' name='ids' id='isInterpresultid' value='isInterpresultid'>";
+			layersMenuHtml += "interpresultid&nbsp;&nbsp;";
+			layersMenuHtml += "<input type='number' name='interpresultid' id='interpresultid' min='1' max='16777216'></td></tr>";
+			layersMenuHtml += "<tr><td>&nbsp;&nbsp;&nbsp;<input type='radio' name='ids' id='isThematicmapid' value='isThematicmapid'>";
+			layersMenuHtml += "thematicmapid&nbsp;&nbsp;";
+			layersMenuHtml += "<input type='number' name='thematicmapid' id='thematicmapid' min='1' max='16777216'></td></tr>";
+			layersMenuHtml += "<tr><td>sld_id&nbsp;<input type='number' name='sld_id' id='sld_id' min='1' max='16777216'></td></tr>";
+			layersMenuHtml += "<tr><td><input type='radio' name='crs' id='isWm' value='isWm' checked>WM&nbsp;&nbsp;&nbsp;";
+			layersMenuHtml += "<input type='radio' name='crs' id='isWgs84' value='isWgs84' >WGS84</td></tr>";
+			mapState.foreground.ids.isNoId = true;
+			
+			// Define background layer choice
+			layersMenuHtml += "<tr><td>&nbsp;</td></tr>";				
+			layersMenuHtml += "<tr><td><h3>Background<h3></th></td></tr>";
+			layersMenuHtml += "<tr><td>&nbsp;&nbsp;&nbsp;<input type='radio' name='background' id='isOsm' value='isOsm' checked>Open Street Maps</td></tr>";			
+			layersMenuHtml += "<tr><td>&nbsp;&nbsp;&nbsp;<input type='radio' name='background' id='isBingAerial' value='isBingAerial'>Bing - Aerial</td></tr>";
+			layersMenuHtml += "<tr><td>&nbsp;&nbsp;&nbsp;<input type='radio' name='background' id='isBingRoad' value='isBingRoad'>Bing - Road</td></tr>";
+			layersMenuHtml += "<tr><td>&nbsp;&nbsp;&nbsp;<input type='radio' name='background' id='isBingAerialWithLabels' value='isBingAerialWithLabels'>Bing - Aerial with labels</td></tr>";
+			layersMenuHtml += "<tr><td>&nbsp;&nbsp;&nbsp;<input type='radio' name='background' id='isNoBackground' value='isNoBackground'>(disabled)</td></tr>";
+			layersMenuHtml += "<td>Bing key<br/><input type='text' name='bingkey' id='bingkey' size='40'><br/><input type='button' value='use key' name='bUseBingKey'>";
+			
+			$('#layers-menu').append(layersMenuHtml);		
 		}
 	
 		// helper function: open url in new tab
@@ -573,87 +571,118 @@
 					}
 				}
 				
-				$('#wfsWmsLinks').html(linksMenuHtml);	
-				
+				$('#wfsWmsLinks').html(linksMenuHtml);			
 			}
 		}
-		// The following Bing key is provided for USDA-use only.
-		var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-});
-		//var bingTiles = new L.BingLayer("AmmH5JF22z1SVTlmW5RBL9Qs24jux_Rn2C6MSGoRHohVCySTPQBcsOf4VEqIvtye", {type: 'Aerial'});
-		var map = L.map('map').setView([38.5643, -121.5838], 14);
-		
-		var features = [];	// holder for selected polygon boundary
-		map.defaults = {
-			icon: new L.Icon({
-				iconUrl: 'red_dot.png',
-				iconSize: [16, 16],
-				iconAnchor: [8, 8],
-				shadowUrl: 'dot_shadow.png',
-				shadowSize: [16, 16],
-				shadowAnchor: [8, 8]
-			}),
-			editable: true,
-			color: '#AA0000',
-			weight: 3,
-			opacity: 1.0,
-			editable: true,
-			fillColor: '#AA0000',
-			fillOpacity: 0.2
-        };
+	
+		// Background layer creation
+		function CreateBackgroundLayer() {
+			if (mapState.background.isOsm) {
+				mapState.background.maplayer = 
+					L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+						attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+				});
+			} else if (mapState.background.isNoBackground) {
+				mapState.background.maplayer = null;
+			} else {
+				var bingType;
+				if (mapState.background.isBingAerial) { bingType = 'Aerial'; }
+				else if (mapState.background.isBingRoad) { bingType = 'Road'; }
+				else if (mapState.background.isBingAerialWithLabels) { bingType = 'AerialWithLabels'; }
+				mapState.background.maplayer =  new L.BingLayer(mapState.background.bingkey, {type: bingType});
+			};
+		}
+
+		// Foreground layer creation
+		function CreateForegroundLayer() {
+			// one or more layers must be selected			
+			var layerstring =  mapState.foreground.layers.filter(elem => elem.value).map(elem => elem.name).join();
+			if (!layerstring) {
+				mapState.foreground.maplayer = null;
+			} else {
+				var parameters = {
+					layers: layerstring,
+					format: 'image/png',
+					transparent: true,
+					attribution: "SDA WMS",
+					maxZoom: 18,
+					minZoom: minZoom,
+					dynamic: Math.random(),	// force new tile set
+				}
+				// Add any id values
+				// these are mutex:
+				if (mapState.foreground.ids.isAoiid && mapState.foreground.ids.aoiid 
+						&& mapState.foreground.ids.aoiid.trim() != '') {
+					parameters.aoiid = mapState.foreground.ids.aoiid;
+				} else if (mapState.foreground.ids.isInterpresultid && mapState.foreground.ids.interpresultid 
+						&& mapState.foreground.ids.interpresultid.trim() != '') {
+					parameters.interpresultid = mapState.foreground.ids.interpresultid;
+				} else if (mapState.foreground.ids.thematicmapid && mapState.foreground.ids.thematicmapid 
+						&& mapState.foreground.ids.thematicmapid.trim() != '') {
+					parameters.thematicmapid = mapState.foreground.ids.thematicmapid;
+				}
+				// sld_id stands alone
+				if (mapState.foreground.ids.sld_id && mapState.foreground.ids.sld_id.trim() != '' ) {
+					parameters.sld_id = mapState.foreground.ids.sld_id;
+				}
+						
+				mapState.foreground.maplayer = L.tileLayer.wms(wmsUrl, parameters);
+				
+				// Set projection		
+				if ((mapState.foreground.isWm || mapState.foreground.isWgs84) 
+					&& mapState.foreground.crs) {
+					mapState.foreground.maplayer.options.crs = mapState.foreground.crs;
+				}
+			}
+		}
+
+		// Redraw map as necessary
+		function RedrawMap(backgroundUpdated, foregroundUpdated)
+		{
+			if (backgroundUpdated) {
+				// Background is always dropped and re-added
+				if (mapState.background.maplayer) {
+					map.removeLayer(mapState.background.maplayer);
+				}
+				CreateBackgroundLayer();
+				mapState.background.maplayer.addTo(map);
+			}
 			
-		// start the map in Fort Collins CO
-		map.setView(new L.LatLng(43.0766, -89.4125),14);function onLocationFound(e) {
-		var radius = e.accuracy / 2;
-
-		L.marker(e.latlng).addTo(map)
-			.bindPopup("You are within " + radius + " meters from this point").openPopup();
-
-		L.circle(e.latlng, radius).addTo(map);
-	}
-
-	function onLocationError(e) {
-		alert(e.message);
-	}
-
-	map.on('locationfound', onLocationFound);
-	map.on('locationerror', onLocationError);
-
-	map.locate({setView: true, maxZoom: 16});
-		map.addLayer(Esri_WorldImagery);
-		L.tileLayer.wms("https://SDMDataAccess.sc.egov.usda.gov/Spatial/SDM.wms", {
-            layers: 'mapunitpoly',
-            format: 'image/png',
-            transparent: true,
-            attribution: "SDA WMS",
-            maxZoom: 18,
-            minZoom: 10,
-        }).addTo(map);
+			if (foregroundUpdated) {
+				// foreground is always dropped and re-added
+				if (mapState.foreground.maplayer) {
+					map.removeLayer(mapState.foreground.maplayer);
+				}
+				CreateForegroundLayer();
+				if (mapState.foreground.maplayer) {
+					mapState.foreground.maplayer.addTo(map);
+				}
+				//mapState.foreground.maplayer.bringToFront();
+			} else {
+				if (backgroundUpdated && mapState.foreground.maplayer) {
+					mapState.foreground.maplayer.redraw();
+					mapState.foreground.maplayer.bringToFront();
+				}
+			}
+		}
 		
-		var sidebar = L.control.sidebar('sidebar').addTo(map);
-		
-		var popup = L.popup();
-		
+		// Respond to clicking on the map
 		function onMapClick(e) {
-			var url =  "HTTPS://sdmdataaccess.sc.egov.usda.gov/tabular/post.rest";
+			mapState.focalPoint = L.latLng(e.latlng);
 			var wkt = "point(" + e.latlng.lng + " " + e.latlng.lat + ")";
 			// carry the coordinates along as the first returned record set. What a hack!
 			var query1 = 
 				"select " + e.latlng.lat + " [lat], " + e.latlng.lng + " [lng];";
 			var query2 = 
-				"select top 1 MU.musym, MU.nationalmusym, MU.muname, MU.farmlndcl "
+				"select top 1 MU.musym, MU.nationalmusym, MU.muname, MU.mukey, MU.farmlndcl "
 				+ "from mapunit MU, "
 				+ "SDA_Get_Mukey_from_intersection_with_WktWgs84('" + wkt + "') K "
 				+ "where MU.mukey = K.mukey;";
 			// An SDA User Defined Function (SDA_Get_Mupolygonkey_from_intersection_with_WktWgs84)
 			// is used to greatly optimize the spatially-indexed retrieval.
 			// See https://sdmdataaccess.sc.egov.usda.gov/documents/AdvancedQueries.html .
-			
-			
-			
 			var query3 = 
-				"select top 1 mupolygongeo from mupolygon MU, "
+				"select top 1 mupolygongeo, MU.mupolygonkey from mupolygon MU, "
 				+ "SDA_Get_Mupolygonkey_from_intersection_with_WktWgs84('" + wkt + "') K "
 				+ "where MU.mupolygonkey = K.mupolygonkey;";
 			var data = {
@@ -661,29 +690,36 @@
 				format: "json+columnname"
 			};
 			
-			$.post(url, data, function( callbackData ) {
-					// The first returned Table has the lat, long in the second row.
-					var latlngTable = callbackData.Table;
-					var latlng = [latlngTable[1][0], latlngTable[1][1]]
-					// the second table has the column names and values
-					var payloadTable = callbackData.Table1;
-					var content = "<table>";
-					icol = 0;
-					while (icol < payloadTable[0].length) {
-						content += "<tr><td>" + payloadTable[0][icol] + "</td><td>" + payloadTable[1][icol] + "</td></tr>";
-						icol++;
+			$.post(postRestUrl, data, function( callbackData ) {
+				// The first returned Table has the lat, long in the second row.
+				var latlngTable = callbackData.Table;
+				var latlng = [latlngTable[1][0], latlngTable[1][1]]
+				// the second table has the column names and values
+				var payloadTable = callbackData.Table1;
+				var content = "<table>";
+				icol = 0;
+				while (icol < payloadTable[0].length) {
+					content += "<tr><td>" + payloadTable[0][icol] + "</td><td>" + payloadTable[1][icol] + "</td></tr>";
+					icol++;
+				};
+				// the third table contains the identified polygon as WKT and the mupolygonkey,
+				// convert to a Leaflet geometry
+				for (i in features) {
+					if (features.hasOwnProperty(i)) {
+						map.removeLayer(features[i]);
 					};
-					// the third table contains the identified polygon as WKT,
-					// convert to a Leaflet geometry
-					for (i in features) {
-						if (features.hasOwnProperty(i)) {
-							map.removeLayer(features[i]);
-						};
-					};
-					features.length = 0;
-					var polyWktTable = callbackData.Table2;
-					var polyWkt = polyWktTable[1][0];
+				};
+				features.length = 0;
+				var polyWktTable = callbackData.Table2;
+				var polyWkt = polyWktTable[1][0];
+				var newMupolygonkey = polyWktTable[1][1];
+				if (mupolygonkey == newMupolygonkey) {
+					mupolygonkey = newMupolygonkey;
+				} else {
+					mupolygonkey = newMupolygonkey;
 					wkt = new Wkt.Wkt(polyWkt);
+					map.defaults.editable = false;
+					map.defaults.icon = L.icon.Default;
 					obj = wkt.toObject(map.defaults);
 					if (Wkt.isArray(obj)) { // Distinguish multigeometries (Arrays) from objects
 						for (i in obj) {
@@ -706,15 +742,17 @@
 							map.panTo(obj.getLatLng());
 						};
 					};
-			
+									
 					popup
 						.setLatLng(latlng)
 						.setContent(content)
-						.openOn(map);
-				}, 
-				"json");				
+						.openOn(map);					
+				}
+			}, 
+			"json");				
 		};
-var leafletDrawLayers = [];
+		
+		var leafletDrawLayers = [];
 		var drawControl = null; 
 		
 		function onDrawEventCreated(event) {
@@ -1085,49 +1123,37 @@ var leafletDrawLayers = [];
 				//populateLinksMenu();	
 			}
 		}
-
-		map.on('click', onMapClick);
 		
-		var GooglePlacesSearchBox = L.Control.extend({
-  onAdd: function() {
-    var element = document.createElement("input");
-    element.id = "searchBox";
-    return element;
-  }
-});
-(new GooglePlacesSearchBox).addTo(map);
+		// The sidebar menu has been clicked, handle the events
+		$('#layersForm').click(function(event){
+			var target = event.target;
+			var name = target.name;
+			
+			if (name == 'bUpdateForeground')
+			{
+				// Foreground has changed, handle that elsewhere
+				UpdateForegroundMap();
+			} else if (name == 'bUseBingKey') {
+				// Bing maps key has changed
+				var newBingkey = $('#bingkey').val();
+				if (mapState.background.bingkey != newBingkey) {
+					mapState.background.bingkey = newBingkey;
+					if ($('#isBingAerial').checked || $('#isBingRoad').checked || $('#isBingAerialWithLabels').checked) {
+						RedrawMap(true, false);
+					}
+				}
+			} else if (name == "background") {
+				// The background selection has changed
+				mapState.background.isOsm = $('#isOsm')[0].checked;
+				mapState.background.isBingAerial = $('#isBingAerial')[0].checked;
+				mapState.background.isBingRoad = $('#isBingRoad')[0].checked;
+				mapState.background.isBingAerialWithLabels = $('#isBingAerialWithLabels')[0].checked;
+				mapState.background.isNoBackground = $('#isNoBackground')[0].checked;
+				RedrawMap(true, false);
+			}
 
-var input = document.getElementById("searchBox");
-var searchBox = new google.maps.places.SearchBox(input);
-
-searchBox.addListener('places_changed', function() {
-  var places = searchBox.getPlaces();
-
-  if (places.length == 0) {
-    return;
-  }
-
-  var group = L.featureGroup();
-
-  places.forEach(function(place) {
-
-    // Create a marker for each place.
-    var marker = L.marker([
-      place.geometry.location.lat(),
-      place.geometry.location.lng()
-    ]);
-    group.addLayer(marker);
-  });
-
-  group.addTo(map);
-  map.fitBounds(group.getBounds());
-
-}
-
-
-);
-		
+		});
 	</script>
-
 </body>
+
 </html>
