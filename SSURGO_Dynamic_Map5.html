@@ -6,54 +6,54 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>Soil Data Access Leaflet</title>
+	<title>TestWMS</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
 	<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/wicket/1.3.2/wicket.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/wicket/1.3.2/wicket-leaflet.min.js"></script>
-	<script src="../script/BingMaps.js"></script>
-	<script src="../script/leaflet-sidebar.js"></script>
+	<script src="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/BingMaps.js"></script>
+	<script src="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/leaflet-sidebar.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
-    <link rel="stylesheet" href="../css/leaflet-sidebar.js" />
+    <link rel="stylesheet" href="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/leaflet-sidebar.css" />
 	
-    <script src="../script/Leaflet.draw.js"></script>
-    <script src="../script/Leaflet.Draw.Event.js"></script>
-    <link rel="stylesheet" href="../css/leaflet.draw.css"/>
+    <script src="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/Leaflet.draw.js"></script>
+    <script src="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/Leaflet.Draw.Event.js"></script>
+    <link rel="stylesheet" href="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/leaflet.draw.css"/>
 
-    <script src="../script/Toolbar.js"></script>
-    <script src="../script/Tooltip.js"></script>
+    <script src="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/Toolbar.js"></script>
+    <script src="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/Tooltip.js"></script>
 
-    <script src="../script/GeometryUtil.js"></script>
-    <script src="../script/LatLngUtil.js"></script>
-    <script src="../script/LineUtil.Intersect.js"></script>
-    <script src="../script/Polygon.Intersect.js"></script>
-    <script src="../script/Polyline.Intersect.js"></script>
-    <script src="../script/TouchEvents.js"></script>
+    <script src="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/GeometryUtil.js"></script>
+    <script src="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/LatLngUtil.js"></script>
+    <script src="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/LineUtil.Intersect.js"></script>
+    <script src="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/Polygon.Intersect.js"></script>
+    <script src="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/Polyline.Intersect.js"></script>
+    <script src="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/TouchEvents.js"></script>
 
-    <script src="../script/DrawToolbar.js"></script>
-    <script src="../script/Draw.Feature.js"></script>
-    <script src="../script/Draw.SimpleShape.js"></script>
-    <script src="../script/Draw.Polyline.js"></script>
-    <script src="../script/Draw.Circle.js"></script>
-    <script src="../script/Draw.Marker.js"></script>
-    <script src="../script/Draw.Polygon.js"></script>
-    <script src="../script/Draw.Rectangle.js"></script>
+    <script src="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/DrawToolbar.js"></script>
+    <script src="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/Draw.Feature.js"></script>
+    <script src="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/Draw.SimpleShape.js"></script>
+    <script src="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/Draw.Polyline.js"></script>
+    <script src="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/Draw.Circle.js"></script>
+    <script src="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/Draw.Marker.js"></script>
+    <script src="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/Draw.Polygon.js"></script>
+    <script src="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/Draw.Rectangle.js"></script>
 
 
-    <script src="../script/EditToolbar.js"></script>
-    <script src="../script/EditToolbar.Edit.js"></script>
-    <script src="../script/EditToolbar.Delete.js"></script>
+    <script src="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/EditToolbar.js"></script>
+    <script src="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/EditToolbar.Edit.js"></script>
+    <script src="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/EditToolbar.Delete.js"></script>
 
-    <script src="../script/Control.Draw.js"></script>
+    <script src="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/Control.Draw.js"></script>
 
-    <script src="../script/Edit.Poly.js"></script>
-    <script src="../script/Edit.SimpleShape.js"></script>
-    <script src="../script/Edit.Circle.js"></script>
-    <script src="../script/Edit.Rectangle.js"></script>
-    <script src="../script/Edit.Marker.js"></script>	
+    <script src="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/Edit.Poly.js"></script>
+    <script src="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/Edit.SimpleShape.js"></script>
+    <script src="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/Edit.Circle.js"></script>
+    <script src="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/Edit.Rectangle.js"></script>
+    <script src="https://sdmdataaccess-dev.dev.sc.egov.usda.gov/test/TestResources/Edit.Marker.js"></script>	
 	
     <style>
         body {
@@ -89,7 +89,7 @@
         <div class="sidebar-tabs">
             <ul role="tablist">
                 <li><a href="#location" role="tab"><i class="fa fa-globe"></i></a></li>
-				<li><a href="#layers-and-ids" role="tab"><i class="fa fa-bars"></i></a></li>
+			     <!-- #layers-and-ids -->	
 				<li><a href="#mouse-actions" role="tab"><i class="fa fa-mouse-pointer"></i></a></li>
 				<li><a href="#links" role="tab"><i class="fa fa-link"></i></a></li>
 			</ul>
@@ -119,16 +119,8 @@
 					</table>
 				</form>	
             </div>		
-		
-            <div class="sidebar-pane" id="layers-and-ids">
-                <h1 class="sidebar-header">
-                    SDA layers & IDs
-                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
-                </h1>
- 				<form id="layersForm">
-					<table id='layers-menu'></table>
-				</form>	
-            </div>
+		     <!-- #layers-and-ids -->	
+      
 			
             <div class="sidebar-pane" id="links">			
                 <h1 class="sidebar-header">
@@ -196,7 +188,7 @@
 		if (window.location.hostname.toLowerCase() != 'localhost') {
 			// Normal SDA environments
 			// "https://SDMDataAccess.sc.egov.usda.gov/Spatial/SDM.wms"
-			wmsUrl = '../spatial/SDM.wms';
+			wmsUrl = 'https://SDMDataAccess.sc.egov.usda.gov/Spatial/SDM.wms';
 			wfsWgs84Url = '../spatial/SDMWGS84Geographic.wfs';
 			wfsWmUrl = '../spatial/SDMWM.wfs';
 			// "HTTPS://sdmdataaccess.sc.egov.usda.gov/tabular/post.rest";
@@ -1155,5 +1147,49 @@
 		});
 	</script>
 </body>
-
+<!--
+History: 
+14:
+ 1. Add location lookup
+ 2. Updated Leaflet.draw links to use files from TestResources/Test directory only.
+13:
+ 1. Add switching between identification and drawing.
+ 2. Invoke SDA AOI or WSS AOI from drawing/edit/save
+12:
+ 1. Add AOI drawing
+11:
+ 1. Update to font-awesome v4.7.0.
+ 2. Add links pull-out.
+10:
+ 1. Fix reference paths for sidebar-v2 CSS and JS files.
+ 2, Fix reference path for Bing.js.
+09:
+ 1. Force IE to use most recent version.
+ 2. Perform layer changes upon button click rather than one layer at a time.
+ 3. Add inputs for interpresultid, thematicmapid and sld_id.
+08:
+ 1. Use AOI boundary from mukeylist AOI rather than approximate centroid.
+ 2. Set OSM as default background
+07:
+ 1. Allow WMS data to be switched beyween Web Mercator and WGS84.
+06: 
+ 1. Fix AOI boundary query to handle SSA-based AOI
+ 2. Add Open Street Maps as ultimate background layer (commented-out)
+ 3. Add mukey to popup.
+05: 
+  1. Add input area for AoiId, force tile flush after change.
+  2. Zoom to AOI
+04:
+  1. Populate list of Soils layers from a DescribeLayer request.
+  2. Use relative URL for accessing SDA.
+  3. Hide descriptive text.
+03: Bing type selection added
+02: Check boxes added to pull-out
+01: 
+  1. Text moved to bottom
+  2. Added "Sidebar-v2/A responsive sidebar with tabs for Leaflet, OpenLayers, Google Maps, ..."
+      downloaded from https://github.com/turbo87/sidebar-v2/ to
+     C:\svn\SDA2\SoilDataAccess\Test\sidebar-v2
+00: original file: D:\notes\2016\12\NRCS_trip_December_2016\follow-up\ex5.html 
+-->
 </html>
