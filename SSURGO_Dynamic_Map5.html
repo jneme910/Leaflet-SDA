@@ -1,7 +1,6 @@
-
-<! DOCTYPE html>
+<!--DOCTYPE html-->
 <html>
-<!-- File: SoilDataAccess\Test\TestWMS14.html  comments at bottom of file -->
+
 
 <head>
 	<meta charset="UTF-8">
@@ -60,12 +59,10 @@
             padding: 0;
             margin: 0;
         }
-
         html, body, #map {
             height: 100%;
             font: 10pt "Helvetica Neue", Arial, Helvetica, sans-serif;
         }
-
 		div.margin-indented {
 			margin-left: 100px;
 			margin-right: 100px;
@@ -194,9 +191,9 @@
 			// "HTTPS://sdmdataaccess.sc.egov.usda.gov/tabular/post.rest";
 			postRestUrl = '../tabular/post.rest';
 			if (window.location.hostname.toLowerCase().includes('.dev.')) {
-				wssUrl = 'https://websoilsurvey-dev.dev.sc.egov.usda.gov/App/WebSoilSurvey.aspx';
+				wssUrl = 'https://websoilsurvey.nrcs.usda.gov/app/WebSoilSurvey.aspx';
 			} else {
-				wssUrl = 'https://websoilsurvey.sc.egov.usda.gov/App/WebSoilSurvey.aspx';
+				wssUrl = 'https://websoilsurvey.nrcs.usda.gov/app/WebSoilSurvey.aspx';
 			}
 		} else {
 			// "Localhost" development environment
@@ -204,7 +201,7 @@
 			wfsWgs84Url = '../../spatial/SDMWGS84Geographic.wfs';
 			wfsWmUrl = '../../spatial/SDMWM.wfs';
 			postRestUrl = '../../sdmtabularservice/tabular/post.rest';
-			wssUrl = 'https://websoilsurvey-dev.dev.sc.egov.usda.gov/App/WebSoilSurvey.aspx';
+			wssUrl = 'https://websoilsurvey.nrcs.usda.gov/app/WebSoilSurvey.aspx';
 		}
 		
 		// map-related globals
@@ -450,7 +447,6 @@
 				
 				linksMenuHtml += "<tr><td colspan='2'>The following links open new tabs.</td></tr>";
 				linksMenuHtml += "<tr><td>&nbsp;</td><td>&nbsp;</td></tr>";
-
 				// general helper variables
 				var focalPointPixels = map.latLngToLayerPoint(mapState.focalPoint);
 				var idString = 
@@ -518,7 +514,6 @@
 					+ "&INFO_FORMAT=gml2"
 					+ idString;
 				linksMenuHtml += "<tr><td>GetFeatureInfo (WGS84, gml2)&nbsp;&nbsp;</td><td onclick='openUrl(\"" + wgs84GetFeatureInfoUrlGml2+ "\")' style='color:blue;text-decoration: underline;'>(click to open tab)</td></tr>";
-
 				// WM GetFeatureInfo (text and gml2)
 				var wmGetFeatureInfoUrlText =
 					wmsUrl + "?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetFeatureInfo"
@@ -538,7 +533,6 @@
 					+ "&INFO_FORMAT=gml2"
 					+ idString;
 				linksMenuHtml += "<tr><td>GetFeatureInfo (WM, gml2)&nbsp;&nbsp;</td><td onclick='openUrl(\"" + wmGetFeatureInfoUrlGml2+ "\")' style='color:blue;text-decoration: underline;'>(click to open tab)</td></tr>";
-
 				// WGS84 GetFeature		
 				var wgs84GetFeatureUrlBase =
 					wfsWgs84Url + "?SERVICE=WMS&VERSION=1.1.0&REQUEST=GetFeature"
@@ -584,7 +578,6 @@
 				mapState.background.maplayer =  new L.BingLayer(mapState.background.bingkey, {type: bingType});
 			};
 		}
-
 		// Foreground layer creation
 		function CreateForegroundLayer() {
 			// one or more layers must be selected			
@@ -627,7 +620,6 @@
 				}
 			}
 		}
-
 		// Redraw map as necessary
 		function RedrawMap(backgroundUpdated, foregroundUpdated)
 		{
@@ -792,7 +784,6 @@
 		//				polyline: false
 		//			}
 		//		});
-
 		//		map.on(L.Draw.Event.CREATED, function (event) {
 		//			var layer = event.layer;
 		//			drawnItems.addLayer(layer);
@@ -827,13 +818,11 @@
 					fillColor: '#AA0000',
 					fillOpacity: 0.2
 				};
-
 				// populate initial map
 				RedrawMap(true, true);				
 				
 				// add the sidebar to the map
 				var sidebar = L.control.sidebar('sidebar').addTo(map);
-
 				// enable on map click and zoom event handling
 				map.on('click', onMapClick);
 				
@@ -912,7 +901,6 @@
 				}
 			});
 		}
-
 		function performAoiActionWssOpen(isStartInNewTab) {
 			//clearDrawnAOI();
 			$("#drawSaveDiv").css('visibility', 'hidden');
@@ -925,14 +913,12 @@
 				$("#wssOpenForm").submit();
 			}
 		}
-
 		function performAoiActionCancel() {
 			$("#drawSaveDiv").css('visibility', 'hidden');
 		}
 		
 		// Handle AOI boundary transitions on zoom operation and clean up identification boundary
 		function onZoomEnd(e) {
-
 			zoomLevel = map.getZoom();
 			$("#zoomlevel").text('zoom level: ' + zoomLevel);
 			if (aoiPlaceholder) {
@@ -1005,7 +991,6 @@
 					query: query,
 					format: "json+columnname"
 				};
-
 				$.post(postRestUrl, data, function( callbackData, textStatus, jqXHR ) {
 					// The first returned Table has the lat, long WKT in the second row's first field
 					if (callbackData && callbackData.Table && callbackData.Table[1] && callbackData.Table[1][0]) {
@@ -1032,7 +1017,6 @@
 				"json");
 			}
 		}
-
 		// Handle updates to the map state
 		function UpdateForegroundMap() {
 			var isMapUpdated = false;
@@ -1059,7 +1043,6 @@
 				hasIdChanged = hasIdChanged || (mapState.foreground.ids.isNoId != isNoId);
 			}
 			mapState.foreground.ids.isNoId = isNoId;
-
 			if (isAoiid) {
 				var aoiid = $('#aoiid').val(); 
 				hasIdChanged = hasIdChanged || 
@@ -1143,53 +1126,7 @@
 				mapState.background.isNoBackground = $('#isNoBackground')[0].checked;
 				RedrawMap(true, false);
 			}
-
 		});
 	</script>
 </body>
-<!--
-History: 
-14:
- 1. Add location lookup
- 2. Updated Leaflet.draw links to use files from TestResources/Test directory only.
-13:
- 1. Add switching between identification and drawing.
- 2. Invoke SDA AOI or WSS AOI from drawing/edit/save
-12:
- 1. Add AOI drawing
-11:
- 1. Update to font-awesome v4.7.0.
- 2. Add links pull-out.
-10:
- 1. Fix reference paths for sidebar-v2 CSS and JS files.
- 2, Fix reference path for Bing.js.
-09:
- 1. Force IE to use most recent version.
- 2. Perform layer changes upon button click rather than one layer at a time.
- 3. Add inputs for interpresultid, thematicmapid and sld_id.
-08:
- 1. Use AOI boundary from mukeylist AOI rather than approximate centroid.
- 2. Set OSM as default background
-07:
- 1. Allow WMS data to be switched beyween Web Mercator and WGS84.
-06: 
- 1. Fix AOI boundary query to handle SSA-based AOI
- 2. Add Open Street Maps as ultimate background layer (commented-out)
- 3. Add mukey to popup.
-05: 
-  1. Add input area for AoiId, force tile flush after change.
-  2. Zoom to AOI
-04:
-  1. Populate list of Soils layers from a DescribeLayer request.
-  2. Use relative URL for accessing SDA.
-  3. Hide descriptive text.
-03: Bing type selection added
-02: Check boxes added to pull-out
-01: 
-  1. Text moved to bottom
-  2. Added "Sidebar-v2/A responsive sidebar with tabs for Leaflet, OpenLayers, Google Maps, ..."
-      downloaded from https://github.com/turbo87/sidebar-v2/ to
-     C:\svn\SDA2\SoilDataAccess\Test\sidebar-v2
-00: original file: D:\notes\2016\12\NRCS_trip_December_2016\follow-up\ex5.html 
--->
 </html>
