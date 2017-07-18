@@ -901,21 +901,7 @@
 				}
 			});
 		}
-		function performAoiActionWssOpen(isStartInNewTab) {
-			//clearDrawnAOI();
-			$("#drawSaveDiv").css('visibility', 'hidden');
-			$("#wssOpenForm").attr('target', isStartInNewTab ? '_blank' : '_self');
-			if (mapState.aoicoords) {
-				$("#wssOpenForm").action = wssUrl;
-				$("#wssOpenForm").attr("action", wssUrl);
-				$("#wssAoicoords").attr("value", mapState.aoicoords);
-				$("#wssContinue").attr("value", wssUrl);
-				$("#wssOpenForm").submit();
-			}
-		}
-		function performAoiActionCancel() {
-			$("#drawSaveDiv").css('visibility', 'hidden');
-		}
+		
 		
 		// Handle AOI boundary transitions on zoom operation and clean up identification boundary
 		function onZoomEnd(e) {
@@ -959,6 +945,24 @@
 				};
 				features.length = 0;			
 			};
+		}
+		
+		function performAoiActionWssOpen(isStartInNewTab) {
+			//clearDrawnAOI();
+			$("#drawSaveDiv").css('visibility', 'hidden');
+			$("#wssOpenForm").attr('target', isStartInNewTab ? '_blank' : '_self');
+			if (mapState.aoicoords) {
+				$("#wssOpenForm").action = wssUrl;
+				$("#wssOpenForm").attr("action", wssUrl);
+				$("#wssOpenForm").attr("value", wssUrl + '?aoicoords=((-98.20956 46.44914,-98.1925 46.44903,-98.19231 46.46183,-98.20937 46.46195,-98.20956 46.44914))' 
+				);
+				//$("#wssAoicoords").attr("value", mapState.aoicoords);
+				$("#wssContinue").attr("value", wssUrl);
+				$("#wssOpenForm").submit();
+			}
+		}
+		function performAoiActionCancel() {
+			$("#drawSaveDiv").css('visibility', 'hidden');
 		}
 				
 		// Move to the AOI location
